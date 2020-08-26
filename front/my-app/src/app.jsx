@@ -1,21 +1,33 @@
-import React from 'react'
-import { NomeDaClasse, Button, Button2 } from './style'
+import React from 'react';
+import {Button,InputForm,Div} from './style'
+import axios from "axios"
+import { wait } from '@testing-library/react'
 function App() {
 
-    const counter = () => {
+        // valor total a ser pago(valor do produto)
+        // valor do dinheiro do cliente(valor da cédula que pagou)
+        // informa o valor minimo de moeda e células a ser pago
+        
+    const getApi = async() => {
 
-        console.log("click here")
+        const result =await axios.get("http://localhost:3333/")
+        console.log(result.data)
     }
 
     return (
-        <div>
-            <NomeDaClasse>
-                <p>Teste</p>
-                <button onClick={() => { counter() }}><span>click here</span></button>
-            </NomeDaClasse>
-            <Button> OK </Button>
-            <Button2>OK2</Button2>
-        </div>
+        
+        <Div>
+            <h3>Sistema de troco</h3>
+           <InputForm placeholder="Valor total do produto:"></InputForm> 
+           <br></br>     
+           <br></br>
+            <InputForm placeholder="Coloque o valor aqui:"></InputForm>
+           <br></br>
+           <br></br>
+           
+           <Button onClick={()=>{getApi()}}> OK </Button>
+            <h4>Troco a ser devolvido</h4>
+        </Div>
     )
 }
 export default App;
