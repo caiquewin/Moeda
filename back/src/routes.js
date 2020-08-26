@@ -3,8 +3,11 @@ const trocoController = require("./controller/trocoController")
 
 const routes = express();
 
+//CRUD =  C = CREATE, R = Read, U = update, D = Delete
+//POST = create, Get = read, Put = update e Delete =delete
 
-routes.get("/",trocoController.calc50)
+routes.post("/",trocoController.calc50)
+
 
 
 

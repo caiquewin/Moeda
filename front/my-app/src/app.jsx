@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Button,InputForm,Div} from './style'
 import axios from "axios"
 import { wait } from '@testing-library/react'
@@ -10,7 +10,7 @@ function App() {
         
     const getApi = async() => {
 
-        const result =await axios.get("http://localhost:3333/")
+        const result =await axios.post("http://localhost:3333/",{vPago:50,vProduto:20})
         console.log(result.data)
     }
 
@@ -18,10 +18,10 @@ function App() {
         
         <Div>
             <h3>Sistema de troco</h3>
-           <InputForm placeholder="Valor total do produto:"></InputForm> 
+           <InputForm type="Number" placeholder="Valor total do produto:"></InputForm> 
            <br></br>     
            <br></br>
-            <InputForm placeholder="Coloque o valor aqui:"></InputForm>
+            <InputForm type="Number" placeholder="Coloque o valor aqui:"></InputForm>
            <br></br>
            <br></br>
            
